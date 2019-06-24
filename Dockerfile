@@ -37,18 +37,28 @@ RUN set -x \
   && echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" > /etc/apt/sources.list \
   && echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" >> /etc/apt/sources.list \
   && wget -q -O /opt/archive-key.asc https://archive.kali.org/archive-key.asc \
-  && apt-key add /opt/archive-key.asc \
-  # Add tools
+  && apt-key add /opt/archive-key.asc
+
+# Add tools
+RUN set -x \
   && apt-get -yqq update \
   && apt-get -yqq install \
     metasploit-framework \
     dsniff \
     hydra \
     netcat \
-  # Clean up PPA
-  && rm -rf /var/lib/apt/lists/*
+    # Debugger
+    gdb
 
+# Install Python Exploit Development Assistance for GDB
+RUN set -x \
+  && git clone https://github.com/longld/peda.git ~/peda \
+  && echo "source ~/peda/peda.py" >> ~/.gdbinit
 
+# Clean up PPA
+RUN rm -rf /var/lib/apt/lists/*
+
+# Self Explanitory
 COPY ./entrypoint /run/entrypoint
 RUN sed -i 's/\r//' /run/entrypoint
 RUN chmod +x /run/entrypoint
