@@ -55,6 +55,10 @@ RUN set -x \
   && git clone https://github.com/longld/peda.git ~/peda \
   && echo "source ~/peda/peda.py" >> ~/.gdbinit
 
+RUN set -x \
+  && git clone https://github.com/slimm609/checksec.sh.git /opt/checksec.sh \
+  && ln -s /opt/checksec.sh/checksec /usr/local/bin/checksec
+
 # Clean up PPA
 RUN rm -rf /var/lib/apt/lists/*
 
