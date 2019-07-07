@@ -47,7 +47,7 @@ RUN set -x \
     dsniff \
     hydra \
     netcat \
-    # Debugger
+    nmap \
     gdb
 
 # Install Python Exploit Development Assistance for GDB
