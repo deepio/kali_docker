@@ -48,6 +48,7 @@ RUN set -x \
     hydra \
     netcat \
     nmap \
+    ltrace \
     gdb
 
 # Install Python Exploit Development Assistance for GDB
