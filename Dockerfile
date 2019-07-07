@@ -57,6 +57,7 @@ RUN set -x \
   && git clone https://github.com/longld/peda.git ~/peda \
   && echo "source ~/peda/peda.py" >> ~/.gdbinit
 
+# Install Checksec
 RUN set -x \
   && git clone https://github.com/slimm609/checksec.sh.git /opt/checksec.sh \
   && ln -s /opt/checksec.sh/checksec /usr/local/bin/checksec
