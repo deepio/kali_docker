@@ -50,6 +50,7 @@ RUN set -x \
     nmap \
     ltrace \
     gdb \
+    tmux \
     vim
 
 # Install Python Exploit Development Assistance for GDB
