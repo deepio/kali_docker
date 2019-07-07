@@ -49,7 +49,8 @@ RUN set -x \
     netcat \
     nmap \
     ltrace \
-    gdb
+    gdb \
+    vim
 
 # Install Python Exploit Development Assistance for GDB
 RUN set -x \
