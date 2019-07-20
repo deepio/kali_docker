@@ -53,6 +53,10 @@ RUN set -x \
     tmux \
     vim
 
+# Install PwnTools
+RUN set -x \
+  && pip install pwntools
+
 # Install Python Exploit Development Assistance for GDB
 RUN set -x \
   && git clone https://github.com/longld/peda.git ~/peda \
