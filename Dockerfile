@@ -51,6 +51,8 @@ RUN set -x \
     ltrace \
     gdb \
     tmux \
+    tor \
+    torsocks \
     vim
 
 # Install PwnTools
