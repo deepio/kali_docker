@@ -4,6 +4,7 @@ set -o nounset
 set -o xtrace
 
 service postgresql start
+service tor start
 msfdb init
 
 exec "$@"
