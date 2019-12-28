@@ -59,12 +59,30 @@ RUN set -x \
 RUN set -x \
   && pip install pwntools
 
-# Install Python Exploit Development Assistance for GDB
 RUN set -x \
+  # Install Python Exploit Development Assistance for GDB
   && git clone https://github.com/longld/peda.git ~/peda \
-  && echo "source ~/peda/peda.py" >> ~/.gdbinit
+  # Comment out in favor of Gef, but still available if you would rather use PEDA
+  && echo "# source ~/peda/peda.py" >> ~/.gdbinit \
+  # Install GDB Enhanced Features AKA Gef
+  && wget -O ~/.gdbinit-gef.py -q https://github.com/hugsy/gef/raw/master/gef.py \
+  && echo "source ~/.gdbinit-gef.py" >> ~/.gdbinit \
+  && echo "set disassembly-flavor intel" >> ~/.gdbinit \
+  && apt -yqq install \
+    python3-pip \
+    cmake \
+  && pip3 install unicorn capstone ropper \
+  && git clone https://github.com/keystone-engine/keystone.git /opt/keystone \
+  && cd /opt/keystone \
+  && mkdir build \
+  && cd build \
+  && ../make-share.sh \
+  && make install \
+  && ldconfig \
+  && cd ../bindings/python \
+  && make install3
 
-# Comes installed with other things # Install Checksec
+# Comes installed with pwntools # Install Checksec
 # RUN set -x \
 #   && git clone https://github.com/slimm609/checksec.sh.git /opt/checksec.sh \
 #   && ln -s /opt/checksec.sh/checksec /usr/local/bin/checksec
