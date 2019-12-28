@@ -23,6 +23,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
   MAINTAINER="d33pi0"
 
 ENV DEBIAN_FRONTEND noninteractive
+# Language for Gef
+ENV LC_CTYPE=C.UTF-8
 
 RUN set -x \
   # Core
