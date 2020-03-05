@@ -55,6 +55,8 @@ RUN set -x \
     tmux \
     tor \
     torsocks \
+    gobuster \
+    seclists \
     vim
 
 # Install PwnTools
