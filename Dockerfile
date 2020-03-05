@@ -57,6 +57,7 @@ RUN set -x \
     torsocks \
     gobuster \
     seclists \
+    sqlmap \
     vim
 
 # Install PwnTools
