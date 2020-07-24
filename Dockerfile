@@ -58,7 +58,9 @@ RUN set -x \
     gobuster \
     seclists \
     sqlmap \
-    vim
+    vim \
+    # 32-bit ELFs
+    gcc-8-base gcc-multilib
 
 # Install PwnTools
 RUN set -x \
