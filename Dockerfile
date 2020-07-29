@@ -64,7 +64,10 @@ RUN set -x \
 
 # Install PwnTools
 RUN set -x \
-  && pip install pwntools
+  # For python2
+  && pip install pwntools \
+	# For python3
+	&& pip3 install pwntools
 
 RUN set -x \
   # Install Python Exploit Development Assistance for GDB
