@@ -65,9 +65,7 @@ RUN set -x \
 # Install PwnTools
 RUN set -x \
   # For python2
-  && pip install pwntools \
-	# For python3
-	&& pip3 install pwntools
+  && pip install pwntools
 
 RUN set -x \
   # Install Python Exploit Development Assistance for GDB
@@ -81,7 +79,7 @@ RUN set -x \
   && apt -yqq install \
     python3-pip \
     cmake \
-  && pip3 install unicorn capstone ropper \
+  && pip3 install unicorn capstone ropper pwntools \
   && git clone https://github.com/keystone-engine/keystone.git /opt/keystone \
   && cd /opt/keystone \
   && mkdir build \
